@@ -46,15 +46,22 @@ void Exclusao(struct Conta vetor[], int numContas) {
     }
     float saldoMenor = 99999999999999999999;
     for (int i = 0; i < numContas; i++) {
-        if (vetor[i].saldo < saldoMenor) {
+        if (vetor[i].saldo < saldoMenor && vetor[i].ativo == 1) {
             saldoMenor = vetor[i].saldo;
         }
     }
+    if (saldoMenor == 99999999999999999999) {
+        printf("Nao existem contas para excluir.");
+        Sleep(3000);
+    }
     for (int i = 0; i < numContas; i++) {
-        if (vetor[i].saldo == saldoMenor) {
+        if (vetor[i].saldo == saldoMenor && vetor[i].ativo == 1) {
             vetor[i].ativo = 0;
+            printf("A conta de saldo %.2f foi excluida com sucesso!", saldoMenor);
+            Sleep(3000);
         }
     }
+
 }
 
 void main() {
@@ -125,3 +132,5 @@ void main() {
         }
     }
 }
+
+
