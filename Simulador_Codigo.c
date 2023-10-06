@@ -43,6 +43,7 @@ void Exclusao(struct Conta vetor[], int numContas) {
     if (numContas == 0) {
         printf("Nao existem contas para excluir.");
         Sleep(3000);
+        return;
     }
     float saldoMenor = 99999999999999999999;
     for (int i = 0; i < numContas; i++) {
@@ -118,7 +119,7 @@ void main() {
             printf("Digite o nome do cliente: ");
             scanf("%s", &nomeBusca);
             Busca(vetor, numContas, nomeBusca);
-            Sleep(6000);
+            Sleep(4000);
             break;
         case 3:
             Exclusao(vetor, numContas);
